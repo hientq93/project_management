@@ -40,10 +40,13 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+@yield('pre_scripts')
 
 @section('scripts')
     @include('layouts.partials.scripts')
 @show
+
+@yield('end_scripts')
 
 </body>
 </html>

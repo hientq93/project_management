@@ -15,7 +15,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Administrator</a>
+          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
         </div>
       </div>
 
@@ -24,48 +24,50 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-users-cog"></i>
-              <p>
-                Account Management
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="nav-icon fas fa-user-alt"></i>
-                  <p>All Account</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
-                  <i class="nav-icon fas fa-user-plus"></i>
-                  <p>Add New</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+          @if( Auth::user()->hasRole('admin'))
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-users-cog"></i>
+                <p>
+                  Quản lý Users
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('user.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-user-alt"></i>
+                    <p>Danh sách user</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-user-plus"></i>
+                    <p>Tạo mới</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          @endif
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
-                Projects
+                Kế hoạch huấn luyện
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="nav-icon far fa-circle nav-icon"></i>
-                  <p>All Project</p>
+                  <p>Danh sách</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/UI/icons.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-plus"></i>
-                  <p>Add New</p>
+                  <p>Tạo mới</p>
                 </a>
               </li>
             </ul>
@@ -74,21 +76,21 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-landmark"></i>
               <p>
-                Company
+                Quản Lý Công Ty
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-building"></i>
-                  <p>All Company</p>
+                  <p>Danh sách công ty</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/UI/icons.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-plus"></i>
-                  <p>Add New</p>
+                  <p>Tạo mới</p>
                 </a>
               </li>
             </ul>
