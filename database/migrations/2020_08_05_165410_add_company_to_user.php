@@ -15,7 +15,7 @@ class AddCompanyToUser extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             if(!Schema::hasColumn('users', 'company_id')) {
-                $table->integer('company_id');
+                $table->integer('company_id')->nullable();
             }
         });
     }

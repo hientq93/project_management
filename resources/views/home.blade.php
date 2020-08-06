@@ -9,7 +9,7 @@
             <div class="inner">
                 <h3>150</h3>
 
-                <p>Project in review</p>
+                <p>Tập huấn đang chờ duyệt</p>
             </div>
             <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -22,9 +22,9 @@
             <!-- small box -->
             <div class="small-box bg-success">
             <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3>150</h3>
 
-                <p>Project approved</p>
+                <p>Thanh kiểm tra đang chờ duyệt</p>
             </div>
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -53,7 +53,5 @@
             {{ session('status') }}
         </div>
     @endif
-
-    {{ __('You are logged in!') }}
 
 @endsection

@@ -59,40 +59,42 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon far fa-circle nav-icon"></i>
+                <a href="{{route('tranning.index')}}" class="nav-link">
+                  <i class="nav-icon ion ion-clipboard mr-1"></i>
                   <p>Danh sách</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-plus"></i>
-                  <p>Tạo mới</p>
+                  <p>Tạo kế hoạch mới</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-landmark"></i>
-              <p>
-                Quản Lý Công Ty
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
+          @if( Auth::user()->hasRole('admin'))
+              <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-building"></i>
-                  <p>Danh sách công ty</p>
+                  <i class="nav-icon fas fa-landmark"></i>
+                  <p>
+                    Quản Lý Công Ty
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-plus"></i>
-                  <p>Tạo mới</p>
-                </a>
-              </li>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{route('company.index')}}" class="nav-link">
+                      <i class="nav-icon fas fa-building"></i>
+                      <p>Danh sách công ty</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-plus"></i>
+                      <p>Tạo mới</p>
+                    </a>
+                  </li>
+                @endif
             </ul>
           </li>
         </ul>

@@ -12,6 +12,10 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Danh sách người dùng</h3>
+
+                    <button type="button" class="btn btn-info float-right">
+                        <i class="fas fa-plus"></i> Tạo người dùng mới
+                    </button>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -21,8 +25,11 @@
                                 <th>ID</th>
                                 <th>User Name</th>
                                 <th>Email</th>
+                                <th>Công ty</th>
                                 <th>Role</th>
                                 <th>Action</th>
+                                <th>Ngày tạo</th>
+                                <th>Ngày sửa</th>
                             </tr>
                         </thead>
                             <tbody>
@@ -31,26 +38,21 @@
                                         <td>{{$user->id}}</td>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
+                                        <td>{{$user->company->name ?? 'Không thuộc công ty con'}}</td>
                                         <td>
                                             @foreach($user->roles as $role)
                                                 <span class="float-right badge bg-primary">{{$role->name}}</span>
                                             @endforeach
                                         </td>
                                         <td>
-                                            <a type="button" class="btn btn-default"><i class="far fa-edit"></i> Edit</a>
+                                            <a href='#' type="button" class="btn bg-gradient-danger"><i class="far fa-edit"></i> Edit</a>
+                                            <a href='#' type="button" class="btn bg-gradient-success"><i class="far fa-eye"></i> Show</a>
                                         </td>
+                                        <td>{{$user->created_at}}</td>
+                                        <td>{{$user->updated_at}}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>ID</th>
-                                <th>User Name</th>
-                                <th>Email</th>
-                                <th>Role</th>
-                                <th>Action</th>
-                            </tr>
-                        </tfoot>
                     </table>
                 </div>
                 <!-- /.card-body -->
@@ -77,8 +79,8 @@
             });
             $('#example2').DataTable({
                 "paging": true,
-                "lengthChange": false,
-                "searching": false,
+                "lengthChange": true,
+                "searching": true,
                 "ordering": true,
                 "info": true,
                 "autoWidth": false,

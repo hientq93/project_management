@@ -3,7 +3,7 @@
 @section('content')
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b style="color: white;">Project Management</b></a>
+    <a href="#"><b style="color: white;">Quản lý nội bộ</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">

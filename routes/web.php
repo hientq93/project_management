@@ -21,5 +21,15 @@ Route::resource('user', 'UserSetting')->names([
     'index' => 'user.index'
 ]);
 
+// Company management
+Route::resource('company', 'CompanyController')->names([
+	'index' => 'company.index'
+]);
+
+// Tranning management
+Route::resource('tranning', 'TranningController')->names([
+	'index' => 'tranning.index'
+]);
+
 
 
