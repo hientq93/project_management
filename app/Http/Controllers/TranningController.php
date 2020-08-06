@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Training;
+use Auth;
 
 class TranningController extends Controller
 {
@@ -14,7 +15,12 @@ class TranningController extends Controller
      */
     public function index()
     {
-        $tranning = Training::all();
+        if(Auth::user()->hasRole('admin')){
+            $tranning = Training::all();
+        } else {
+            $tranning = Training::where('company_id',Auth::user()->company_id)->get();
+        }
+
 		return view('tranning.index')->with('trannings', $tranning);
     }
 
@@ -25,7 +31,7 @@ class TranningController extends Controller
      */
     public function create()
     {
-        //
+        return view('tranning.create');
     }
 
     /**

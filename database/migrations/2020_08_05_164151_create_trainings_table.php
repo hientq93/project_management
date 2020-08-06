@@ -23,7 +23,8 @@ class CreateTrainingsTable extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->integer('assign_to');
-            $table->integer('company');
+            $table->integer('company_id');
+            $table->integer('user_id');
             $table->tinyInteger('status');
             $table->timestamps();
         });

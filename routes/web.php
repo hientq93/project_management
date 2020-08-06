@@ -28,7 +28,8 @@ Route::resource('company', 'CompanyController')->names([
 
 // Tranning management
 Route::resource('tranning', 'TranningController')->names([
-	'index' => 'tranning.index'
+	'index' => 'tranning.index',
+	'create' => 'tranning.create',
 ]);
 
 

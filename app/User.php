@@ -79,4 +79,9 @@ class User extends Authenticatable
 	{
 		return $this->belongsTo('App\Models\Company');
 	}
+
+    public function training()
+    {
+        return $this->hasMany('App\Training');
+    }
 }

@@ -30,8 +30,7 @@
                             <th>Công ty</th>
                             <th>Trạng thái</th>
                             <th>Mô tả</th>
-                            <th>Ngày tạo</th>
-                            <th>Ngày sửa</th>
+                            <th>Người tạo</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -43,12 +42,15 @@
                                 <td>{{$tranning->cost}} triệu</td>
                                 <td>{{$tranning->start_date}}</td>
                                 <td>{{$tranning->end_date}}</td>
-                                <td>{{$tranning->assign_to}}</td>
-                                <td>{{$tranning->company}}</td>
-                                <td>{{$tranning->status}}</td>
+                                <td>{{$tranning->getAssignTo()}}</td>
+                                <td>{{$tranning->company->name}}</td>
+                                <td>
+                                    <span class="float-right badge bg-{{config('constants.TRANNING_STATUS_COLOR')[$tranning->status]}}">
+                                        {{$tranning->getStatus()}}
+                                    </span>
+                                </td>
                                 <td>{{$tranning->description}}</td>
-                                <td>{{$tranning->created_at}}</td>
-                                <td>{{$tranning->updated_at}}</td>
+                                <td>{{$tranning->user->name}}</td>
                             </tr>
                         @endforeach
                         </tbody>
