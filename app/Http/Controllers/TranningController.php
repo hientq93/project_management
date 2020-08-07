@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Models\Training;
 use Auth;
+use App\User;
 
 class TranningController extends Controller
 {
@@ -31,7 +34,24 @@ class TranningController extends Controller
      */
     public function create()
     {
-        return view('tranning.create');
+        if(Auth::user()->hasRole('admin')){
+            $managers = User::whereHas('roles', function($q) {
+                    $q->where('role_id', 2);
+                })->get();
+
+            $companies = Company::all();
+        } else {
+            $managers = User::where('company_id', Auth::user()->company_id)
+                ->whereHas('roles', function($q) {
+                    $q->where('role_id', 2);
+                })->get();
+
+            $companies = Company::where('id',Auth::user()->company_id)->get();
+        }
+
+        return view('tranning.create')
+            ->with('managers',$managers)
+            ->with('companies',$companies);
     }
 
     /**

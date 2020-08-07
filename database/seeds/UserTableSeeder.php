@@ -32,13 +32,13 @@ class UserTableSeeder extends Seeder
         $employee->save();
         $employee->roles()->attach($role_employee);
 
-        $saler = new User();
-        $saler->name = 'Manager 01';
-        $saler->email = 'manager01@gmail.com';
-        $saler->password = bcrypt('123456');
-        $employee->company_id = 1;
-        $saler->save();
-        $saler->roles()->attach($role_manager);
+        $manager = new User();
+        $manager->name = 'Manager 01';
+        $manager->email = 'manager01@gmail.com';
+        $manager->password = bcrypt('123456');
+        $manager->company_id = 1;
+        $manager->save();
+        $manager->roles()->attach($role_manager);
 
 		$employee = new User();
 		$employee->name = 'Employee 02';
@@ -48,13 +48,13 @@ class UserTableSeeder extends Seeder
 		$employee->save();
 		$employee->roles()->attach($role_employee);
 
-		$saler = new User();
-		$saler->name = 'Manager 02';
-		$saler->email = 'manager02@gmail.com';
-		$saler->password = bcrypt('123456');
-		$employee->company_id = 1;
-		$saler->save();
-		$saler->roles()->attach($role_manager);
+		$manager = new User();
+		$manager->name = 'Manager 02';
+		$manager->email = 'manager02@gmail.com';
+		$manager->password = bcrypt('123456');
+        $manager->company_id = 1;
+		$manager->save();
+		$manager->roles()->attach($role_manager);
 
         $employee = new User();
         $employee->name = 'Employee 03';
@@ -72,20 +72,20 @@ class UserTableSeeder extends Seeder
         $employee->save();
         $employee->roles()->attach($role_employee);
 
-        $saler = new User();
-        $saler->name = 'Manager 03';
-        $saler->email = 'manager03@gmail.com';
-        $saler->password = bcrypt('123456');
-        $employee->company_id = 2;
-        $saler->save();
-        $saler->roles()->attach($role_manager);
+        $manager = new User();
+        $manager->name = 'Manager 03';
+        $manager->email = 'manager03@gmail.com';
+        $manager->password = bcrypt('123456');
+        $manager->company_id = 2;
+        $manager->save();
+        $manager->roles()->attach($role_manager);
 
-        $saler = new User();
-        $saler->name = 'Manager 04';
-        $saler->email = 'manager04@gmail.com';
-        $saler->password = bcrypt('123456');
-        $employee->company_id = 4;
-        $saler->save();
-        $saler->roles()->attach($role_manager);
+        $manager = new User();
+        $manager->name = 'Manager 04';
+        $manager->email = 'manager04@gmail.com';
+        $manager->password = bcrypt('123456');
+        $manager->company_id = 4;
+        $manager->save();
+        $manager->roles()->attach($role_manager);
     }
 }

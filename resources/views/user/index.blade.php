@@ -9,7 +9,7 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <div class="card">
+            <div class="card card-primary card-outline">
                 <div class="card-header">
                     <h3 class="card-title">Danh sách người dùng</h3>
 
@@ -45,8 +45,9 @@
                                             @endforeach
                                         </td>
                                         <td>
-                                            <a href='#' type="button" class="btn bg-gradient-danger"><i class="far fa-edit"></i> Edit</a>
-                                            <a href='#' type="button" class="btn bg-gradient-success"><i class="far fa-eye"></i> Show</a>
+                                            <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                            <a href="#" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                                            <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                         </td>
                                         <td>{{$user->created_at}}</td>
                                         <td>{{$user->updated_at}}</td>
@@ -66,10 +67,10 @@
 @endsection
 @section('end_scripts')
     <!-- DataTables -->
-    <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
 
     <script>
         $(function () {

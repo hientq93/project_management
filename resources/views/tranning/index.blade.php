@@ -9,11 +9,11 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <div class="card">
+            <div class="card card-primary card-outline">
                 <div class="card-header">
                     <h3 class="card-title">Danh sách kế hoạch huấn luyện</h3>
 
-                    <button type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Tạo kế hoạch mới</button>
+                    <a type="button" href="{{route('tranning.create')}}" class="btn btn-info float-right"><i class="fas fa-plus"></i> Tạo kế hoạch mới</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -31,6 +31,7 @@
                             <th>Trạng thái</th>
                             <th>Mô tả</th>
                             <th>Người tạo</th>
+                            <th>Chức năng</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -51,6 +52,21 @@
                                 </td>
                                 <td>{{$tranning->description}}</td>
                                 <td>{{$tranning->user->name}}</td>
+                                <td>
+                                    <a class="btn btn-danger btn-sm" href="#">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    @if(Auth::user()->id == $tranning->user_id ||  Auth::user()->hasRole('admin'))
+                                        <a href="#" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                                        <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                    @endif
+                                    @if(Auth::user()->id == $tranning->assign_to ||  Auth::user()->hasRole('admin'))
+                                        <a class="btn btn-success btn-sm" href="#">
+                                            <i class="fas fa-check-circle"></i>
+                                        </a>
+                                    @endif
+
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -67,10 +83,10 @@
 @endsection
 @section('end_scripts')
     <!-- DataTables -->
-    <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
 
     <script>
         $(function () {
